@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earth — Lo Âu | StellarMind</title>
+  <meta name="description" content="Khám phá cảm xúc lo âu trên Trái Đất và thực hành bài tập thở tiếp đất. StellarMind - Hành trình khám phá cảm xúc qua hệ Mặt Trời.">
+  <meta property="og:title" content="Earth — Lo Âu | StellarMind">
+  <meta property="og:description" content="Khám phá cảm xúc lo âu trên Trái Đất và học cách điều hòa hệ thần kinh giao cảm.">
+  <meta name="theme-color" content="#020c14">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/planet-page.css">
+  <link rel="stylesheet" href="../css/chatbot.css">
+</head>
+<body data-planet="earth" data-emotion="anxiety">
+
+  <!-- Star Background & Particle Field -->
+  <canvas id="ppStarCanvas"></canvas>
+
+  <!-- Fixed view-sticky rotating planet -->
+  <div class="pp-fixed-planet-wrap" id="ppFixedPlanet">
+    <canvas id="ppPlanetCanvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="pp-nav">
+    <div class="pp-nav-logo">🪐 STELLAR<span>MIND</span></div>
+    <ul class="pp-nav-links">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="community.html">Cộng đồng</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+    </ul>
+    <div class="pp-nav-right">
+      <div class="pp-nav-planet-nav"></div>
+      <a href="#" class="pp-back-btn" id="ppBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-right: 4px;">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Quay lại
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Scroll Journey -->
+  <main class="pp-page">
+    
+    <!-- SECTION 1: Hero Landing -->
+    <section class="pp-hero" id="hero">
+      <div class="pp-hero-bg"></div>
+      <div class="pp-hero-content">
+        <div class="pp-hero-kicker" id="ppPageKicker">Hành tinh duy nhất có nước lỏng</div>
+        <h1 class="pp-hero-title" id="ppName">TRÁI ĐẤT</h1>
+        <div class="pp-hero-emotion">
+          <span class="pp-hero-emotion-label" id="ppEmotion">Lo Âu</span>
+          <span class="pp-hero-emotion-em">Anxiety</span>
+        </div>
+        <blockquote id="ppQuote">"..."</blockquote>
+        
+        <div style="margin-top: 24px;">
+          <button id="ppAudioToggle" class="pp-back-btn">🎵 Âm Thanh: Tắt</button>
+          <button id="ppYoutubeBtn" class="pp-back-btn" style="margin-left: 10px;">📺 Tài Nguyên Thấu Cảm</button>
+        </div>
+      </div>
+      <div class="pp-scroll-cue">Cuộn để khám phá <span class="arrow">↓</span></div>
+    </section>
+
+    <!-- SECTION 2: Bạn có đang ở hành tinh này? -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">01 / Dấu Hiệu</span>
+        <h2 class="pp-section-title">Bạn có đang ở tinh cầu này?</h2>
+        <div id="ppSymptoms" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-emotion-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Bên trong hành tinh -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">02 / Chiều Sâu Cảm Xúc</span>
+        <h2 class="pp-section-title">Bên Trong Tinh Cầu Sự Sống</h2>
+        
+        <div class="pp-planet-row">
+          <div class="pp-planet-visual">
+            <div class="pp-planet-canvas-wrap">
+              <!-- Visual placeholder space for fixed viewport planet -->
+            </div>
+          </div>
+          <div class="pp-planet-desc-wrap">
+            <p class="pp-planet-desc" id="ppDesc">...</p>
+            <div class="glass-card p-6" style="background: rgba(var(--acc-rgb), 0.04); border-color: rgba(var(--acc-rgb), 0.15);">
+              <h4 class="font-heading text-white text-base mb-2">Mối liên hệ Vũ trụ - Tâm lý học:</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Trái Đất cân bằng hoàn hảo nhờ nhịp độ tự quay quanh trục và khoảng cách vàng với Mặt Trời. Nhưng dưới những cơn bão khí quyển dữ dội, sự sống vẫn kiên trì bám rễ. Lo âu của con người cũng như những lớp mây bão khí quyển ấy — chúng xuất hiện cuồn cuộn nhưng không thể phá vỡ sự cân bằng cốt lõi bên trong bạn nếu bạn biết cách hít thở để neo đậu ý thức về thực tại vật lý.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Thống kê trực quan -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">03 / Dữ Liệu Thực Tế</span>
+        <h2 class="pp-section-title">Những con số về hội chứng lo âu</h2>
+        
+        <div id="ppStats">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin: 24px 0; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-illustration-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 1" />
+        </div>
+        
+        <div class="progress-section" style="border-top: 1px solid rgba(var(--acc-rgb), 0.08); margin-top: 30px; padding-top: 30px;">
+          <h3 class="progress-title" style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 12px;">Đô thị hóa và áp lực cuộc sống</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 74%;"></div>
+            </div>
+            <p class="progress-label">74% người trẻ sống tại các đô thị lớn trải qua các triệu chứng lo âu định kỳ do áp lực công việc và sự không chắc chắn ở tương lai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Những suy nghĩ thường gặp -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">04 / Tiếng Vọng Tâm Trí</span>
+        <h2 class="pp-section-title">Dòng suy nghĩ lơ lửng</h2>
+        <div class="pp-story-grid">
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_102</h4>
+            <p class="pp-story-card-text">"Tôi luôn nghĩ về kịch bản tồi tệ nhất có thể xảy ra và dằn vặt lo sợ cả ngày."</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_303</h4>
+            <p class="pp-story-card-text">"Tim tôi đập nhanh, lồng ngực thắt lại mỗi khi nhận được email mới hay tin nhắn gấp."</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_014</h4>
+            <p class="pp-story-card-text">"Tôi không thể ngủ được vì đầu óc cứ liên tục chạy qua các câu hỏi: Phải làm sao nếu...?"</p>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-emotion-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Nguyên nhân -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">05 / Bản Đồ Nguyên Nhân</span>
+        <h2 class="pp-section-title">Gốc rễ cơn bão lo âu</h2>
+        <div id="ppCauses" class="pp-timeline reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Tác động -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">06 / Tác Động</span>
+        <h2 class="pp-section-title">Khi cơ thể gánh chịu sự lo âu kéo dài</h2>
+        <div class="pp-signs-grid">
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🫀</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Quá tải hệ tuần hoàn</strong>
+              Tim đập nhanh liên tục làm tăng huyết áp và gây mỏi mệt cơ tim kéo dài.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">💤</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Rối loạn chu kỳ ngủ</strong>
+              Hormone cortisol tăng cao ngăn cản cơ thể chìm vào trạng thái ngủ sâu và phục hồi tế bào.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🧊</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Căng thẳng cơ học</strong>
+              Cơ vai gáy, quai hàm nghiến chặt vô thức gây đau đầu mạn tính.
+            </div>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-emotion-3.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Lời khuyên đặc trưng -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">07 / Neo Đậu Thực Tại</span>
+        <h2 class="pp-section-title">Hạ cánh an toàn xuống khoảnh khắc hiện tại</h2>
+        <div id="ppAdvice" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-illustration-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Video hoặc hình minh họa -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">08 / Góc Khoa Học Vũ Trụ</span>
+        <h2 class="pp-section-title">Lớp bảo vệ của Trái Đất</h2>
+        <img src="../assets/images/planets/earth/earth-science.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Sơ đồ Trái Đất" />
+        <div class="pp-cinematic-caption">Từ trường và bầu khí quyển che chở Trái Đất khỏi gió mặt trời khắc nghiệt</div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Hành động & Widget Thở tiếp đất -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">09 / Điều Hòa Hệ Thần Kinh</span>
+        <h2 class="pp-section-title">Hạ nhiệt hệ thống thần kinh thực vật</h2>
+        
+        <div class="pp-actions-grid" id="ppActions">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <!-- Widget tương tác đặc trưng: Trạm hít thở tiếp đất -->
+        <div class="glass-card p-6 mb-6" style="margin-top: 30px; background: rgba(var(--acc-rgb), 0.05); border-color: rgba(var(--acc-rgb), 0.15);">
+          <h3 class="font-heading text-white text-base mb-4 text-center">Trạm Hít Thở Tiếp Đất</h3>
+          <p class="text-xs text-slate-400 mb-4 text-center font-mono">Thực hành thở Box Breathing để báo hiệu sự an toàn cho não bộ:</p>
+          <div class="pp-breathing-wrap" style="border: none; padding: 20px 0; background: transparent;">
+            <div class="pp-breath-circle" id="ppBreathCircle">●</div>
+            <div class="pp-breath-label" id="ppBreathLabel" style="font-family: var(--font-heading); font-weight: 600; color: #fff; font-size: 1.1rem; margin-top: 15px;">Nhấn bắt đầu</div>
+            <div class="pp-breath-timer" id="ppBreathTimer" style="font-family: var(--font-mono); font-size: 1.3rem; color: var(--acc); margin-top: 5px;">—</div>
+            <button id="ppBreathBtn" class="pp-back-btn" style="margin-top: 20px;">BẮT ĐẦU</button>
+            <p class="text-xs text-slate-400 mt-4" id="ppEarthBreathStatus">Thực hành 4 chu kỳ hít thở tiếp đất vật lý.</p>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/earth/earth-scenario.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Scenario" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: Chat AI với Slider -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">10 / Trạm Không Gian AI</span>
+        <h2 class="pp-section-title">Giãi bày sự bất an</h2>
+        
+        <div class="pp-signal-wrap reveal">
+          <div class="pp-slider-wrap">
+            <span class="pp-slider-label">Cường độ lo âu hiện tại:</span>
+            <input type="range" id="ppSlider" min="1" max="5" value="3" />
+            <span id="ppSliderVal">Cấp 3 / 5</span>
+            <div class="pp-signal-bars" id="ppSignalBars"></div>
+          </div>
+          
+          <div class="pp-signal-desc" id="ppSignalDesc">
+            <div id="ppSignalName">📡 Đang kết nối tín hiệu...</div>
+            <div id="ppSignalDetail">Đang định vị cảm xúc của phi hành gia...</div>
+          </div>
+          
+          <textarea id="ppAiInput" placeholder="Nhập những kịch bản lo lắng trong đầu bạn. Hãy viết ra để giải tỏa sự dồn nén..."></textarea>
+          <button id="ppAiSend">GỬI TÍN HIỆU VÀO VŨ TRỤ</button>
+          <div id="ppAiResponse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: Khám phá hành tinh khác -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">11 / Hành Trình Tiếp Theo</span>
+        <h2 class="pp-section-title">Vượt qua các miền cảm xúc vũ trụ</h2>
+        <div id="ppDots"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- YouTube Modal -->
+  <div id="ppYoutubeModal">
+    <div class="pp-modal-box">
+      <button id="ppModalClose">✕</button>
+      <div class="pp-modal-title">Tài Nguyên Chữa Lành</div>
+      <ul id="ppYtList"></ul>
+    </div>
+  </div>
+
+  <footer class="pp-footer">
+    <div class="pp-footer-logo">🪐 STELLAR<span>MIND</span></div>
+    <p class="pp-footer-meta">StellarMind © 2026 — Dự án Giáo dục Chữa lành Tinh hà</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="../js/planets-enhanced.js"></script>
+  <script src="../js/planet-page.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

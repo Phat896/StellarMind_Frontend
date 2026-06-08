@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercury — Cô Đơn | StellarMind</title>
+  <meta name="description" content="Khám phá cảm xúc cô đơn và tìm cách vượt qua nó. StellarMind - Hành trình khám phá cảm xúc qua hệ Mặt Trời.">
+  <meta property="og:title" content="Mercury — Cô Đơn | StellarMind">
+  <meta property="og:description" content="Khám phá cảm xúc cô đơn và tìm cách vượt qua nó.">
+  <meta property="og:image" content="../assets/images/planets/mercury/mercury-hero.svg">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/planet-page.css">
+  <link rel="stylesheet" href="../css/chatbot.css">
+</head>
+<body data-planet="mercury" data-emotion="loneliness">
+
+  <!-- Fixed view-sticky rotating planet -->
+  <div class="pp-fixed-planet-wrap" id="ppFixedPlanet">
+    <canvas id="ppPlanetCanvas"></canvas>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 1: HERO LANDING
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-hero" id="hero">
+    <div class="pp-hero-bg"></div>
+    <div class="hero-container">
+      <div class="hero-planet-canvas"></div>
+      
+      <div class="hero-content">
+        <h1 class="hero-title" data-animate="title">MERCURY</h1>
+        <p class="hero-emotion" data-animate="emotion">CÔ ĐƠN</p>
+        <p class="hero-tagline" data-animate="tagline">Cảm giác xa cách mặc dù ở giữa đám đông</p>
+      </div>
+
+      <button class="scroll-indicator" id="scrollIndicator" aria-label="Cuộn xuống">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="12 5 12 19"></polyline>
+          <polyline points="19 12 12 19 5 12"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Background elements -->
+    <div class="hero-dust" id="dustContainer"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 2: SYMPTOMS - BẠN CÓ ĐANG Ở HÀNH TINH NÀY?
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-symptoms" id="symptoms">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Bạn có đang ở hành tinh này?</h2>
+        <p class="section-subtitle">Những dấu hiệu bạn đang cảm thấy cô đơn</p>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 30px; text-align: center;">
+        <img src="../assets/images/planets/mercury/mercury-emotion-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Mercury Emotion 1">
+      </div>
+
+      <div class="symptoms-grid">
+        <div class="symptom-card" data-symptom="1">
+          <div class="symptom-icon">❄️</div>
+          <h3 class="symptom-title">Cảm thấy xa cách</h3>
+          <p class="symptom-desc">Ngay cả khi ở xung quanh những người khác</p>
+        </div>
+
+        <div class="symptom-card" data-symptom="2">
+          <div class="symptom-icon">🌑</div>
+          <h3 class="symptom-title">Tối tăm bên trong</h3>
+          <p class="symptom-desc">Khó chia sẻ những gì mình cảm thấy</p>
+        </div>
+
+        <div class="symptom-card" data-symptom="3">
+          <div class="symptom-icon">🔇</div>
+          <h3 class="symptom-title">Im lặng khó chịu</h3>
+          <p class="symptom-desc">Không biết cách kết nối với người khác</p>
+        </div>
+
+        <div class="symptom-card" data-symptom="4">
+          <div class="symptom-icon">⏳</div>
+          <h3 class="symptom-title">Thời gian dãn dài</h3>
+          <p class="symptom-desc">Ngày dường như lặp lại vô tận</p>
+        </div>
+
+        <div class="symptom-card" data-symptom="5">
+          <div class="symptom-icon">💔</div>
+          <h3 class="symptom-title">Tâm trạng trống rỗng</h3>
+          <p class="symptom-desc">Không cảm thấy được thấu hiểu</p>
+        </div>
+
+        <div class="symptom-card" data-symptom="6">
+          <div class="symptom-icon">🌍</div>
+          <h3 class="symptom-title">Bị gạt ra ngoài</h3>
+          <p class="symptom-desc">Có cảm giác không thuộc về nơi nào</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 3: DEEP DIVE - BÊN TRONG HÀNH TINH
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-deepdive" id="deepdive">
+    <div class="container">
+      <div class="deepdive-grid">
+        <div class="deepdive-image">
+          <img src="../assets/images/planets/mercury/mercury-illustration-1.svg" alt="Mercury Illustration 1" class="deepdive-img">
+        </div>
+
+        <div class="deepdive-content">
+          <div class="section-header">
+            <h2 class="section-title">Bên Trong Hành Tinh</h2>
+            <p class="section-subtitle">Hiểu về cảm xúc cô đơn</p>
+          </div>
+
+          <div class="deepdive-text">
+            <p>
+              Cô đơn không phải chỉ là việc không có ai ở bên cạnh. Đó là cảm giác trống rỗng ngay cả khi bạn ở giữa đám đông, cảm giác mà chẳng ai hiểu được bạn thực sự là ai.
+            </p>
+
+            <p>
+              Giống như Mercury quay quanh Mặt Trời trong bóng tối — luôn chuyển động nhưng luôn cô đơn. Hành tinh này gần như không có bầu khí quyển để giữ ấm, không có vệ tinh, chỉ có bề mặt khô cằn và bầu không gian lạnh lẽo.
+            </p>
+
+            <p>
+              Cô đơn có thể là kết quả của:
+            </p>
+
+            <ul class="deepdive-list">
+              <li>Mất kết nối với những người thân yêu</li>
+              <li>Cảm thấy không được hiểu bởi những người xung quanh</li>
+              <li>Sợ bị phán xét hoặc từ chối</li>
+              <li>Rút mình khỏi những mối quan hệ</li>
+              <li>Cảm thấy khác biệt so với người khác</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 4: STATISTICS - THỐNG KÊ
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-statistics" id="statistics">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Thống Kê</h2>
+        <p class="section-subtitle">Những con số về cô đơn toàn cầu</p>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 30px; text-align: center;">
+        <img src="../assets/images/planets/mercury/mercury-illustration-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Mercury Illustration 2">
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" data-target="35">0%</div>
+          <p class="stat-label">Mọi người từng cảm thấy cô đơn</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="72">0%</div>
+          <p class="stat-label">Không muốn chia sẻ với ai</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="58">0%</div>
+          <p class="stat-label">Ảnh hưởng sức khỏe tâm thần</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number" data-target="82">0%</div>
+          <p class="stat-label">Cảm thấy tốt hơn sau khi nói chuyện</p>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <h3 class="progress-title">Cảm giác cô đơn của bạn</h3>
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="--progress: 0%">
+            <div class="progress-fill"></div>
+          </div>
+          <p class="progress-label"><span id="progressValue">0</span>% - Bạn không hoàn toàn cô đơn</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 5: SOCIAL THOUGHTS - NHỮNG SỰ SÁNG TỐ THƯỜNG GẶP
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-thoughts" id="thoughts">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Những Suy Nghĩ Thường Gặp</h2>
+        <p class="section-subtitle">Những suy nghĩ bạn chẳng nên tự tin</p>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 30px; text-align: center;">
+        <img src="../assets/images/planets/mercury/mercury-emotion-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Mercury Emotion 2">
+      </div>
+
+      <div class="thoughts-carousel">
+        <div class="thought-card">
+          <div class="thought-quote">
+            "Tôi không thuộc về nơi nào."
+          </div>
+          <div class="thought-meta">
+            <div class="thought-avatar">A</div>
+            <span class="thought-name">Alex</span>
+          </div>
+        </div>
+
+        <div class="thought-card">
+          <div class="thought-quote">
+            "Mọi người đều ổn hơn tôi."
+          </div>
+          <div class="thought-meta">
+            <div class="thought-avatar">S</div>
+            <span class="thought-name">Sarah</span>
+          </div>
+        </div>
+
+        <div class="thought-card">
+          <div class="thought-quote">
+            "Tôi chẳng quan trọng với ai cả."
+          </div>
+          <div class="thought-meta">
+            <div class="thought-avatar">J</div>
+            <span class="thought-name">Jordan</span>
+          </div>
+        </div>
+
+        <div class="thought-card">
+          <div class="thought-quote">
+            "Sẽ luôn như vậy mãi mãi."
+          </div>
+          <div class="thought-meta">
+            <div class="thought-avatar">M</div>
+            <span class="thought-name">Morgan</span>
+          </div>
+        </div>
+
+        <div class="thought-card">
+          <div class="thought-quote">
+            "Không ai sẽ bao giờ hiểu tôi."
+          </div>
+          <div class="thought-meta">
+            <div class="thought-avatar">C</div>
+            <span class="thought-name">Casey</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 6: CAUSES - NGUYÊN NHÂN
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-causes" id="causes">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Nguyên Nhân</h2>
+        <p class="section-subtitle">Tìm hiểu gốc rễ của cảm xúc này</p>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 30px; text-align: center;">
+        <img src="../assets/images/planets/mercury/mercury-emotion-3.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Mercury Emotion 3">
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item" data-cause="1">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Tách biệt Xã Hội</h3>
+            <p>Mất kết nối với bạn bè, gia đình hoặc cộng đồng. Có thể do chuyển nhà, thay đổi công việc, hoặc tự rút mình khỏi xã hội.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-cause="2">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Mâu Thuẫn Cá Nhân</h3>
+            <p>Cảm giác bị hiểu lầm, không thể chia sẻ thực sự là bạn. Sự khác biệt trong giá trị hoặc đam mê.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-cause="3">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Sợ Bị Từ Chối</h3>
+            <p>Nỗi sợ hãi này ngăn cản bạn mở lòng và kết nối với những người khác, tạo thành một vòng luẩn quẩn.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-cause="4">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Sức Khỏe Tâm Thần</h3>
+            <p>Trầm cảm, lo âu, hoặc những điều kiện khác có thể làm tăng cảm giác cô đơn.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-cause="5">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <h3>Sử Dụng Công Nghệ Quá Mức</h3>
+            <p>Mặc dù có nhiều kết nối online nhưng vẫn cảm thấy cô đơn về cảm xúc. Mối quan hệ qua màn hình không đủ sâu.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 7: IMPACTS - TÁC ĐỘNG
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-impacts" id="impacts">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Tác Động</h2>
+        <p class="section-subtitle">Cô đơn ảnh hưởng như thế nào?</p>
+      </div>
+
+      <div class="impacts-grid">
+        <div class="impact-card">
+          <div class="impact-icon">💭</div>
+          <h3>Sức Khỏe Tinh Thần</h3>
+          <p>Tăng nguy cơ trầm cảm, lo âu, và các vấn đề sức khỏe tâm thần khác.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-icon">💪</div>
+          <h3>Sức Khỏe Thể Chất</h3>
+          <p>Cô đơn kéo dài có thể yếu miễn dịch, tăng huyết áp, và các vấn đề sức khỏe khác.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-icon">🎯</div>
+          <h3>Năng Lực Tập Trung</h3>
+          <p>Khó tập trung vào công việc học tập khi tâm trí bị chia sẻ bởi cảm xúc tiêu cực.</p>
+        </div>
+
+        <div class="impact-card">
+          <div class="impact-icon">🔄</div>
+          <h3>Vòng Luẩn Quẩn</h3>
+          <p>Cô đơn dẫn đến tự cô lập, làm tăng cảm giác cô đơn, tạo thành một vòng tròn khó thoát.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 8: ADVICE - LỜI KHUYÊN
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-advice" id="advice">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Lời Khuyên</h2>
+        <p class="section-subtitle">Cách để vượt qua cảm xúc cô đơn</p>
+      </div>
+
+      <div class="reveal" style="margin-bottom: 30px; text-align: center;">
+        <img src="../assets/images/planets/mercury/mercury-scenario.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Mercury Scenario">
+      </div>
+
+      <div class="advice-grid">
+        <div class="advice-card" data-advice="1">
+          <div class="advice-front">
+            <div class="advice-number">01</div>
+            <h3>Mở Lòng</h3>
+          </div>
+          <div class="advice-back">
+            <p>Hãy tin tưởng ít nhất một người. Chia sẻ những gì bạn cảm thấy với ai đó bạn tin tưởng. Sự thấu hiểu từ một người cũng đủ để chữa lành.</p>
+          </div>
+        </div>
+
+        <div class="advice-card" data-advice="2">
+          <div class="advice-front">
+            <div class="advice-number">02</div>
+            <h3>Tìm Cộng Đồng</h3>
+          </div>
+          <div class="advice-back">
+            <p>Tham gia các nhóm, câu lạc bộ hoặc các hoạt động mà bạn yêu thích. Những người chia sẻ đam mê của bạn sẽ dễ hiểu hơn.</p>
+          </div>
+        </div>
+
+        <div class="advice-card" data-advice="3">
+          <div class="advice-front">
+            <div class="advice-number">03</div>
+            <h3>Chăm Sóc Bản Thân</h3>
+          </div>
+          <div class="advice-back">
+            <p>Thiền định, tập thể dục, hoặc làm những thứ bạn yêu thích. Tình yêu bản thân là bước đầu tiên để kết nối với người khác.</p>
+          </div>
+        </div>
+
+        <div class="advice-card" data-advice="4">
+          <div class="advice-front">
+            <div class="advice-number">04</div>
+            <h3>Tìm Sự Giúp Đỡ</h3>
+          </div>
+          <div class="advice-back">
+            <p>Nếu cảm xúc quá nặng nề, hãy tìm một nhà tâm lý sư hoặc bác sĩ. Không có gì xấu hổ khi cần giúp đỡ chuyên nghiệp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 9: VISUAL - HÃY NHÌN KHÁC ĐI
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-visual" id="visual">
+    <div class="visual-container">
+      <img src="../assets/images/planets/mercury/mercury-science.svg" alt="Mercury Science" class="visual-image">
+      <div class="visual-overlay">
+        <h2 class="visual-title">Cô Đơn Không Phải Là Lỗi</h2>
+        <p class="visual-subtitle">Đó là tín hiệu rằng bạn cần kết nối</p>
+        <p class="visual-text">Hãy lắng nghe tiếng gọi của trái tim. Mọi người đều có thể cô đơn. Mọi người cũng có thể tìm thấy kết nối.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 10: CTA - HÀNH ĐỘNG NGAY HÔM NAY
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-cta" id="cta">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Hành Động Ngay Hôm Nay</h2>
+        <p class="section-subtitle">Những bước nhỏ để thay đổi lớn</p>
+      </div>
+
+      <div class="cta-checklist">
+        <label class="cta-item">
+          <input type="checkbox" class="cta-checkbox">
+          <span class="cta-text">Liên lạc lại một người cũ</span>
+        </label>
+
+        <label class="cta-item">
+          <input type="checkbox" class="cta-checkbox">
+          <span class="cta-text">Tham gia một hoạt động mới</span>
+        </label>
+
+        <label class="cta-item">
+          <input type="checkbox" class="cta-checkbox">
+          <span class="cta-text">Viết lại một lá thư cho bản thân</span>
+        </label>
+
+        <label class="cta-item">
+          <input type="checkbox" class="cta-checkbox">
+          <span class="cta-text">Đi bộ một mình nhưng có ý thức</span>
+        </label>
+
+        <label class="cta-item">
+          <input type="checkbox" class="cta-checkbox">
+          <span class="cta-text">Chia sẻ một bí mật với bạn</span>
+        </label>
+      </div>
+
+      <!-- Widget Tương tác đặc trưng: Sonar Radar -->
+      <div class="glass-card p-6 mb-6" style="margin-top: 30px; background: rgba(var(--acc-rgb), 0.05); border: 1px solid rgba(var(--acc-rgb), 0.15); border-radius: 12px;">
+        <h3 class="font-heading text-white text-base mb-4 text-center">Trạm phát sóng Sonar</h3>
+        <div class="pp-sonar-widget">
+          <div class="pp-sonar-radar" id="ppMercuryRadar" style="margin: 0 auto 20px;">
+            <div class="pp-sonar-center" id="ppMercuryCenter"></div>
+          </div>
+          <div id="ppMercuryStatus" class="text-center text-sm text-slate-300 mt-4">Chạm vào tâm radar để phát sóng vô tuyến tìm kiếm kết nối...</div>
+        </div>
+      </div>
+
+      <div class="cta-progress">
+        <div class="progress-bar">
+          <div class="progress-fill" style="--done: 0%"></div>
+        </div>
+        <p class="progress-text"><span id="ctaCount">0</span>/5 hoàn thành</p>
+      </div>
+
+      <button class="cta-share-btn" id="shareBtn">📤 Chia sẻ hành trình của bạn</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 11: AI CHAT
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-chat" id="chat">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Trò Chuyện với AI</h2>
+        <p class="section-subtitle">Luôn có ai đó lắng nghe</p>
+      </div>
+
+      <div class="chat-box">
+        <div class="chat-messages" id="chatMessages">
+          <div class="chat-bubble bot">
+            <p>Xin chào! 👋 Tôi ở đây để lắng nghe bạn. Bạn cảm thấy cô đơn từ bao lâu rồi?</p>
+          </div>
+        </div>
+
+        <div class="chat-input-wrapper">
+          <input type="text" class="chat-input" id="chatInput" placeholder="Gõ thắc mắc của bạn...">
+          <button class="chat-send" id="chatSend" aria-label="Gửi tin nhắn">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+              <path d="M16.6915026,12.4744748 L3.50612381,13.2599618 C3.19218622,13.2599618 3.03521743,13.4170592 3.03521743,13.5741566 L1.15159189,20.0151496 C0.8376543,20.8006365 0.99,21.89 1.77946707,22.52 C2.41,22.99 3.50612381,23.1 4.13399899,22.8429026 L21.714504,14.0454487 C22.6563168,13.5741566 23.1272231,12.6315722 22.9702544,11.6889879 L4.13399899,1.16346273 C3.34915502,0.9 2.40734225,1.00636533 1.77946707,1.4776575 C0.994623095,2.10604706 0.837654326,3.0486314 1.15159189,3.99701575 L3.03521743,10.4380088 C3.03521743,10.5950899 3.19218622,10.7521873 3.50612381,10.7521873 L16.6915026,11.5376742 C16.6915026,11.5376742 17.1624089,11.5376742 17.1624089,12.0089662 C17.1624089,12.4744748 16.6915026,12.4744748 16.6915026,12.4744748 Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECTION 12: PLANET EXPLORER - KHÁM PHÁ HÀNH TINH KHÁC
+       ═══════════════════════════════════════════════════════════ -->
+  <section class="section-explorer" id="explorer">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Khám Phá Hành Tinh Khác</h2>
+        <p class="section-subtitle">Mỗi cảm xúc đều có câu chuyện riêng</p>
+      </div>
+
+      <div class="planets-carousel" id="planetsCarousel">
+        <div class="carousel-item" data-planet="venus">
+          <a href="venus.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Venus</h3>
+            <p>Ghen Tị</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="earth">
+          <a href="earth.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Earth</h3>
+            <p>Lo Âu</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="mars">
+          <a href="mars.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Mars</h3>
+            <p>Giận Dữ</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="jupiter">
+          <a href="jupiter.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Jupiter</h3>
+            <p>Áp Lực</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="saturn">
+          <a href="saturn.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Saturn</h3>
+            <p>Trầm Cảm</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="uranus">
+          <a href="uranus.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Uranus</h3>
+            <p>Tự Ti</p>
+          </a>
+        </div>
+
+        <div class="carousel-item" data-planet="neptune">
+          <a href="neptune.html" class="carousel-link">
+            <canvas class="carousel-planet"></canvas>
+            <h3>Neptune</h3>
+            <p>Mất Phương Hướng</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 StellarMind. Khám phá cảm xúc, tìm cách chữa lành.</p>
+      <ul class="footer-links">
+        <li><a href="#" target="_blank">Về chúng tôi</a></li>
+        <li><a href="#" target="_blank">Liên hệ</a></li>
+        <li><a href="#" target="_blank">Chính sách riêng tư</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="../js/planets-enhanced.js"></script>
+  <script src="../js/planet-page.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

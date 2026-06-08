@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mars — Giận Dữ | StellarMind</title>
+  <meta name="description" content="Khám phá cảm xúc giận dữ trên Sao Hỏa và học cách giải tỏa lành mạnh. StellarMind - Hành trình khám phá cảm xúc qua hệ Mặt Trời.">
+  <meta property="og:title" content="Mars — Giận Dữ | StellarMind">
+  <meta property="og:description" content="Khám phá cảm xúc giận dữ trên Sao Hỏa và cách kiểm soát cơn thịnh nộ.">
+  <meta name="theme-color" content="#160400">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/planet-page.css">
+  <link rel="stylesheet" href="../css/chatbot.css">
+</head>
+<body data-planet="mars" data-emotion="anger">
+
+  <!-- Star Background & Particle Field -->
+  <canvas id="ppStarCanvas"></canvas>
+
+  <!-- Fixed view-sticky rotating planet -->
+  <div class="pp-fixed-planet-wrap" id="ppFixedPlanet">
+    <canvas id="ppPlanetCanvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="pp-nav">
+    <div class="pp-nav-logo">🪐 STELLAR<span>MIND</span></div>
+    <ul class="pp-nav-links">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="community.html">Cộng đồng</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+    </ul>
+    <div class="pp-nav-right">
+      <div class="pp-nav-planet-nav"></div>
+      <a href="#" class="pp-back-btn" id="ppBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-right: 4px;">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Quay lại
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Scroll Journey -->
+  <main class="pp-page">
+    
+    <!-- SECTION 1: Hero Landing -->
+    <section class="pp-hero" id="hero">
+      <div class="pp-hero-bg"></div>
+      <div class="pp-hero-content">
+        <div class="pp-hero-kicker" id="ppPageKicker">Tinh cầu lửa đỏ của hệ Mặt Trời</div>
+        <h1 class="pp-hero-title" id="ppName">SAO HỎA</h1>
+        <div class="pp-hero-emotion">
+          <span class="pp-hero-emotion-label" id="ppEmotion">Giận Dữ</span>
+          <span class="pp-hero-emotion-em">Anger</span>
+        </div>
+        <blockquote id="ppQuote">"..."</blockquote>
+        
+        <div style="margin-top: 24px;">
+          <button id="ppAudioToggle" class="pp-back-btn">🎵 Âm Thanh: Tắt</button>
+          <button id="ppYoutubeBtn" class="pp-back-btn" style="margin-left: 10px;">📺 Tài Nguyên Thấu Cảm</button>
+        </div>
+      </div>
+      <div class="pp-scroll-cue">Cuộn để khám phá <span class="arrow">↓</span></div>
+    </section>
+
+    <!-- SECTION 2: Bạn có đang ở hành tinh này? -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">01 / Dấu Hiệu</span>
+        <h2 class="pp-section-title">Bạn có đang ở tinh cầu này?</h2>
+        <div id="ppSymptoms" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-emotion-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Bên trong hành tinh -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">02 / Chiều Sâu Cảm Xúc</span>
+        <h2 class="pp-section-title">Bên Trong Tinh Cầu Núi Lửa</h2>
+        
+        <div class="pp-planet-row">
+          <div class="pp-planet-visual">
+            <div class="pp-planet-canvas-wrap">
+              <!-- Visual placeholder space for fixed viewport planet -->
+            </div>
+          </div>
+          <div class="pp-planet-desc-wrap">
+            <p class="pp-planet-desc" id="ppDesc">...</p>
+            <div class="glass-card p-6" style="background: rgba(var(--acc-rgb), 0.04); border-color: rgba(var(--acc-rgb), 0.15);">
+              <h4 class="font-heading text-white text-base mb-2">Mối liên hệ Vũ trụ - Tâm lý học:</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Sao Hỏa mang màu đỏ rực rỡ đặc trưng của sắt oxit bao phủ bề mặt, nơi đây có ngọn núi lửa Olympus Mons khổng lồ lớn nhất hệ Mặt Trời. Sự giận dữ của bạn cũng giống như những dòng magma cuộn trào sâu bên trong lớp vỏ Sao Hỏa — đó là năng lượng bộc phát mạnh mẽ đòi hỏi một van xả an toàn, nếu bị nén quá mức sẽ nổ tung và tàn phá mọi mối quan hệ xung quanh.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Thống kê trực quan -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">03 / Dữ Liệu Thực Tế</span>
+        <h2 class="pp-section-title">Thống kê về những cơn thịnh nộ</h2>
+        
+        <div id="ppStats">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin: 24px 0; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-illustration-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 1" />
+        </div>
+        
+        <div class="progress-section" style="border-top: 1px solid rgba(var(--acc-rgb), 0.08); margin-top: 30px; padding-top: 30px;">
+          <h3 class="progress-title" style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 12px;">Xung đột và kiểm soát cảm xúc</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 68%;"></div>
+            </div>
+            <p class="progress-label">68% người tham gia khảo sát thừa nhận từng đưa ra quyết định sai lầm hoặc phát ngôn tổn thương người khác khi đang ở đỉnh điểm cơn giận.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Những suy nghĩ thường gặp -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">04 / Tiếng Vọng Tâm Trí</span>
+        <h2 class="pp-section-title">Dòng suy nghĩ lơ lửng</h2>
+        <div class="pp-story-grid">
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_808</h4>
+            <p class="pp-story-card-text">"Tôi muốn đập phá thứ gì đó hoặc gào thét thật lớn để tống khứ sự bực dọc này ra ngoài."</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_119</h4>
+            <p class="pp-story-card-text">"Họ đã cố tình xúc phạm và vượt qua ranh giới tôn trọng của tôi. Tôi phải đáp trả!"</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_555</h4>
+            <p class="pp-story-card-text">"Ngực tôi nóng ran và tôi không thể suy nghĩ logic được gì ngoài việc muốn chiến đấu."</p>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-emotion-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Nguyên nhân -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">05 / Bản Đồ Nguyên Nhân</span>
+        <h2 class="pp-section-title">Mồi lửa châm ngòi cơn giận</h2>
+        <div id="ppCauses" class="pp-timeline reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Tác động -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">06 / Tác Động</span>
+        <h2 class="pp-section-title">Tác hại của ngọn lửa bùng cháy liên tục</h2>
+        <div class="pp-signs-grid">
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🌋</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Đổ vỡ niềm tin</strong>
+              Những lời nói thốt ra khi giận dữ để lại vết sẹo giao tiếp sâu sắc, khó có thể hàn gắn.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🫀</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Quá tải tim mạch</strong>
+              Nồng độ adrenaline tăng vọt đột ngột gây áp lực nặng nề lên thành mạch và cơ tim.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🧠</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Tê liệt tư duy lý trí</strong>
+              Hạch hạnh nhân chiếm quyền kiểm soát vỏ não trước trán, triệt tiêu khả năng đánh giá sáng suốt.
+            </div>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-emotion-3.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Lời khuyên đặc trưng -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">07 / Khoảng Lặng Hạ Nhiệt</span>
+        <h2 class="pp-section-title">Tạm dừng phản ứng để bảo vệ ranh giới an toàn</h2>
+        <div id="ppAdvice" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-illustration-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Video hoặc hình minh họa -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">08 / Góc Khoa Học Vũ Trụ</span>
+        <h2 class="pp-section-title">Hẻm núi khổng lồ Valles Marineris</h2>
+        <img src="../assets/images/planets/mars/mars-science.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Sơ đồ Sao Hỏa" />
+        <div class="pp-cinematic-caption">Vết nứt hẻm núi lớn nhất hệ Mặt Trời dài 4.000 km như vết sẹo nứt toác của sự thịnh nộ</div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Hành động & Widget Van xả áp suất -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">09 / Giải Phóng Năng Lượng Cơ Học</span>
+        <h2 class="pp-section-title">Trút bỏ xung động cơ bắp lành mạnh</h2>
+        
+        <div class="pp-actions-grid" id="ppActions">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <!-- Widget tương tác đặc trưng: Van xả áp suất -->
+        <div class="glass-card p-6 mb-6" style="margin-top: 30px; background: rgba(var(--acc-rgb), 0.05); border-color: rgba(var(--acc-rgb), 0.15); text-align: center;">
+          <h3 class="font-heading text-white text-base mb-4">Van Xả Áp Suất Giận Dữ</h3>
+          <p class="text-xs text-slate-400 mb-4 font-mono">Nhấn liên tục vào nút lò xo đỏ dưới đây để giải tỏa năng lượng thừa cơ bắp:</p>
+          <div class="pp-anger-block-widget" style="padding: 10px 0;">
+            <div class="pp-anger-core-button" id="ppMarsAngerBtn" style="margin: 0 auto 15px;">💢 NÉN</div>
+            <p class="text-xs text-slate-400" id="ppMarsAngerStatus">Nhấn dồn dập vào van để xả áp suất khí nén.</p>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/mars/mars-scenario.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Scenario" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: Chat AI với Slider -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">10 / Trạm Không Gian AI</span>
+        <h2 class="pp-section-title">Gửi tín hiệu hạ hỏa</h2>
+        
+        <div class="pp-signal-wrap reveal">
+          <div class="pp-slider-wrap">
+            <span class="pp-slider-label">Cường độ nóng giận:</span>
+            <input type="range" id="ppSlider" min="1" max="5" value="3" />
+            <span id="ppSliderVal">Cấp 3 / 5</span>
+            <div class="pp-signal-bars" id="ppSignalBars"></div>
+          </div>
+          
+          <div class="pp-signal-desc" id="ppSignalDesc">
+            <div id="ppSignalName">📡 Đang kết nối tín hiệu...</div>
+            <div id="ppSignalDetail">Đang định vị cảm xúc của phi hành gia...</div>
+          </div>
+          
+          <textarea id="ppAiInput" placeholder="Viết những uất ức hoặc nguyên nhân khiến bạn bốc hỏa. Trạm vũ trụ Mars sẵn sàng làm dịu cơn giận của bạn..."></textarea>
+          <button id="ppAiSend">GỬI TÍN HIỆU VÀO VŨ TRỤ</button>
+          <div id="ppAiResponse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: Khám phá hành tinh khác -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">11 / Hành Trình Tiếp Theo</span>
+        <h2 class="pp-section-title">Vượt qua các miền cảm xúc vũ trụ</h2>
+        <div id="ppDots"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- YouTube Modal -->
+  <div id="ppYoutubeModal">
+    <div class="pp-modal-box">
+      <button id="ppModalClose">✕</button>
+      <div class="pp-modal-title">Tài Nguyên Chữa Lành</div>
+      <ul id="ppYtList"></ul>
+    </div>
+  </div>
+
+  <footer class="pp-footer">
+    <div class="pp-footer-logo">🪐 STELLAR<span>MIND</span></div>
+    <p class="pp-footer-meta">StellarMind © 2026 — Dự án Giáo dục Chữa lành Tinh hà</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="../js/planets-enhanced.js"></script>
+  <script src="../js/planet-page.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>

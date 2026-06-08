@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neptune — Mất Phương Hướng | StellarMind</title>
+  <meta name="description" content="Khám phá cảm xúc mất phương hướng trên Sao Hải Vương và thực hành cân chỉnh la bàn giá trị cốt lõi. StellarMind - Hành trình khám phá cảm xúc qua hệ Mặt Trời.">
+  <meta property="og:title" content="Neptune — Mất Phương Hướng | StellarMind">
+  <meta property="og:description" content="Khám phá cảm xúc mất phương hướng trên Sao Hải Vương và cách tìm lại la bàn giá trị nội tâm.">
+  <meta name="theme-color" content="#020c1e">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/planet-page.css">
+  <link rel="stylesheet" href="../css/chatbot.css">
+</head>
+<body data-planet="neptune" data-emotion="disorientation">
+
+  <!-- Star Background & Particle Field -->
+  <canvas id="ppStarCanvas"></canvas>
+
+  <!-- Fixed view-sticky rotating planet -->
+  <div class="pp-fixed-planet-wrap" id="ppFixedPlanet">
+    <canvas id="ppPlanetCanvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="pp-nav">
+    <div class="pp-nav-logo">🪐 STELLAR<span>MIND</span></div>
+    <ul class="pp-nav-links">
+      <li><a href="index.html">Trang chủ</a></li>
+      <li><a href="community.html">Cộng đồng</a></li>
+      <li><a href="contact.html">Liên hệ</a></li>
+    </ul>
+    <div class="pp-nav-right">
+      <div class="pp-nav-planet-nav"></div>
+      <a href="#" class="pp-back-btn" id="ppBack">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12" style="margin-right: 4px;">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        Quay lại
+      </a>
+    </div>
+  </nav>
+
+  <!-- Main Scroll Journey -->
+  <main class="pp-page">
+    
+    <!-- SECTION 1: Hero Landing -->
+    <section class="pp-hero" id="hero">
+      <div class="pp-hero-bg"></div>
+      <div class="pp-hero-content">
+        <div class="pp-hero-kicker" id="ppPageKicker">Tinh cầu xa xôi đầy bão tố siêu thanh</div>
+        <h1 class="pp-hero-title" id="ppName">SAO HẢI VƯƠNG</h1>
+        <div class="pp-hero-emotion">
+          <span class="pp-hero-emotion-label" id="ppEmotion">Mất Phương Hướng</span>
+          <span class="pp-hero-emotion-em">Disorientation</span>
+        </div>
+        <blockquote id="ppQuote">"..."</blockquote>
+        
+        <div style="margin-top: 24px;">
+          <button id="ppAudioToggle" class="pp-back-btn">🎵 Âm Thanh: Tắt</button>
+          <button id="ppYoutubeBtn" class="pp-back-btn" style="margin-left: 10px;">📺 Tài Nguyên Thấu Cảm</button>
+        </div>
+      </div>
+      <div class="pp-scroll-cue">Cuộn để khám phá <span class="arrow">↓</span></div>
+    </section>
+
+    <!-- SECTION 2: Bạn có đang ở hành tinh này? -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">01 / Dấu Hiệu</span>
+        <h2 class="pp-section-title">Bạn có đang ở tinh cầu này?</h2>
+        <div id="ppSymptoms" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-emotion-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 1" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Bên trong hành tinh -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">02 / Chiều Sâu Cảm Xúc</span>
+        <h2 class="pp-section-title">Bên Trong Tinh Cầu Bản Đồ Mờ Sương</h2>
+        
+        <div class="pp-planet-row">
+          <div class="pp-planet-visual">
+            <div class="pp-planet-canvas-wrap">
+              <!-- Visual placeholder space for fixed viewport planet -->
+            </div>
+          </div>
+          <div class="pp-planet-desc-wrap">
+            <p class="pp-planet-desc" id="ppDesc">...</p>
+            <div class="glass-card p-6" style="background: rgba(var(--acc-rgb), 0.04); border-color: rgba(var(--acc-rgb), 0.15);">
+              <h4 class="font-heading text-white text-base mb-2">Mối liên hệ Vũ trụ - Tâm lý học:</h4>
+              <p class="text-sm text-slate-400 leading-relaxed">
+                Sao Hải Vương là hành tinh nằm ở rìa xa xôi nhất thái dương hệ, nơi ngập tràn sương mù mênh mông và các cơn bão siêu thanh cuộn xoáy. Cảm giác mất phương hướng của bạn tương tự như đứng giữa làn sương mù ấy — bạn hoang mang không biết đi đâu, chọn mục tiêu nào. Đó là vì bạn đang cố gắng đi theo bản đồ ước mơ của người khác. Hãy dừng lại, cân chỉnh lại la bàn giá trị cốt lõi để tự vẽ con đường của mình.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Thống kê trực quan -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">03 / Dữ Liệu Thực Tế</span>
+        <h2 class="pp-section-title">Khảo sát về sự vô định và lạc lối</h2>
+        
+        <div id="ppStats">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin: 24px 0; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-illustration-1.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 1" />
+        </div>
+        
+        <div class="progress-section" style="border-top: 1px solid rgba(var(--acc-rgb), 0.08); margin-top: 30px; padding-top: 30px;">
+          <h3 class="progress-title" style="font-family: var(--font-heading); font-size: 1.15rem; margin-bottom: 12px;">Sự hoang mang định hướng nghề nghiệp</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%;"></div>
+            </div>
+            <p class="progress-label">65% sinh viên mới tốt nghiệp thừa nhận từng trải qua cảm xúc hoang mang sâu sắc, lạc lối và không chắc chắn về con đường sự nghiệp tương lai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Những suy nghĩ thường gặp -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">04 / Tiếng Vọng Tâm Trí</span>
+        <h2 class="pp-section-title">Dòng suy nghĩ lơ lửng</h2>
+        <div class="pp-story-grid">
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_111</h4>
+            <p class="pp-story-card-text">"Tôi đang đi theo định hướng của bố mẹ, nhưng trong lòng luôn thấy cuộc sống này vô nghĩa."</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_888</h4>
+            <p class="pp-story-card-text">"Tôi đổi hướng liên tục, bắt đầu rất nhiều dự án nhưng không thể kết thúc nổi một việc."</p>
+          </div>
+          <div class="pp-story-card">
+            <div class="pp-story-icon">💭</div>
+            <h4 class="pp-story-card-title">@phi_hanh_gia_222</h4>
+            <p class="pp-story-card-text">"Tôi hoang mang kinh khủng khi nhìn về tương lai 5 năm nữa. Tôi thực sự muốn làm gì?"</p>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-emotion-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Nguyên nhân -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">05 / Bản Đồ Nguyên Nhân</span>
+        <h2 class="pp-section-title">Gốc rễ sự lạc lối vô định</h2>
+        <div id="ppCauses" class="pp-timeline reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Tác động -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">06 / Tác Động</span>
+        <h2 class="pp-section-title">Hệ quả từ bão vô định che phủ</h2>
+        <div class="pp-signs-grid">
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🌀</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Trì hoãn quyết định</strong>
+              Nỗi sợ chọn sai khiến bạn bị tê liệt, trì hoãn đưa ra các quyết định cuộc đời quan trọng.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🌫️</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Trôi nổi vô định</strong>
+              Cuộc sống trôi qua thụ động, bạn để hoàn cảnh và kỳ vọng của người khác đưa đẩy mình đi.
+            </div>
+          </div>
+          <div class="pp-sign-item">
+            <span class="pp-sign-icon">🍂</span>
+            <div class="pp-sign-text">
+              <strong style="color: #fff; display: block; margin-bottom: 4px;">Mất đi động lực sống</strong>
+              Không có kim chỉ nam khiến mọi việc làm hàng ngày trở nên rỗng tuếch và vô nghĩa.
+            </div>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-emotion-3.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Emotion 3" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Lời khuyên đặc trưng -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">07 / Xây Dựng La Bàn Nội Tâm</span>
+        <h2 class="pp-section-title">Xác định hệ giá trị cốt lõi để làm hoa tiêu</h2>
+        <div id="ppAdvice" class="pp-signs-grid reveal">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-illustration-2.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Illustration 2" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Video hoặc hình minh họa -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">08 / Góc Khoa Học Vũ Trụ</span>
+        <h2 class="pp-section-title">Cơn bão Great Dark Spot</h2>
+        <img src="../assets/images/planets/neptune/neptune-science.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Sơ đồ Sao Hải Vương" />
+        <div class="pp-cinematic-caption">Cơn bão Great Dark Spot khổng lồ cuồng xoáy giữa bầu khí quyển băng giá Neptune</div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: Hành động & Widget La bàn giá trị -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">09 / Xác Định Điểm Xuất Phát</span>
+        <h2 class="pp-section-title">Xây dựng lại bản đồ hành trình cá nhân</h2>
+        
+        <div class="pp-actions-grid" id="ppActions">
+          <!-- Injected dynamically by JS -->
+        </div>
+
+        <!-- Widget tương tác đặc trưng: La bàn giá trị cốt lõi -->
+        <div class="glass-card p-6 mb-6" style="margin-top: 30px; background: rgba(var(--acc-rgb), 0.05); border-color: rgba(var(--acc-rgb), 0.15);">
+          <h3 class="font-heading text-white text-base mb-4 text-center">La Bàn Giá Trị Cốt Lõi</h3>
+          <p class="text-xs text-slate-400 mb-4 text-center font-mono">Chọn tối đa 3 giá trị sống cốt lõi để xoay kim la bàn định hướng bản thân:</p>
+          <div class="pp-compass-widget">
+            <div class="pp-compass-circle-wrap">
+              <div class="pp-compass-circle" id="ppNeptuneCompass">
+                <div class="pp-compass-needle"></div>
+              </div>
+            </div>
+            <div class="pp-compass-val-grid">
+              <div class="pp-compass-val-item" data-value="Sức khỏe">Sức khỏe</div>
+              <div class="pp-compass-val-item" data-value="Tự do">Tự do</div>
+              <div class="pp-compass-val-item" data-value="Sáng tạo">Sáng tạo</div>
+              <div class="pp-compass-val-item" data-value="Gia đình">Gia đình</div>
+              <div class="pp-compass-val-item" data-value="Sự nghiệp">Sự nghiệp</div>
+              <div class="pp-compass-val-item" data-value="Trải nghiệm">Trải nghiệm</div>
+            </div>
+            <div class="pp-compass-status font-body" id="ppNeptuneCompassStatus">Chọn các giá trị sống để định vị kim la bàn.</div>
+          </div>
+        </div>
+
+        <div class="pp-image-row reveal" style="margin-top: 32px; text-align: center;">
+          <img src="../assets/images/planets/neptune/neptune-scenario.svg" class="pp-cinematic-img" style="border-radius: 12px;" alt="Scenario" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: Chat AI với Slider -->
+    <section class="pp-section dark">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">10 / Trạm Không Gian AI</span>
+        <h2 class="pp-section-title">Tìm kiếm tọa độ định hướng</h2>
+        
+        <div class="pp-signal-wrap reveal">
+          <div class="pp-slider-wrap">
+            <span class="pp-slider-label">Mức độ mất phương hướng:</span>
+            <input type="range" id="ppSlider" min="1" max="5" value="3" />
+            <span id="ppSliderVal">Cấp 3 / 5</span>
+            <div class="pp-signal-bars" id="ppSignalBars"></div>
+          </div>
+          
+          <div class="pp-signal-desc" id="ppSignalDesc">
+            <div id="ppSignalName">📡 Đang kết nối tín hiệu...</div>
+            <div id="ppSignalDetail">Đang định vị cảm xúc của phi hành gia...</div>
+          </div>
+          
+          <textarea id="ppAiInput" placeholder="Viết ra những lựa chọn hoặc sự hoang mang bạn đang đối diện. AI Hải Vương tinh sẽ gợi mở phương hướng cho bạn..."></textarea>
+          <button id="ppAiSend">GỬI TÍN HIỆU VÀO VŨ TRỤ</button>
+          <div id="ppAiResponse"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: Khám phá hành tinh khác -->
+    <section class="pp-section">
+      <div class="pp-section-inner">
+        <span class="pp-section-label">11 / Hành Trình Tiếp Theo</span>
+        <h2 class="pp-section-title">Vượt qua các miền cảm xúc vũ trụ</h2>
+        <div id="ppDots"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- YouTube Modal -->
+  <div id="ppYoutubeModal">
+    <div class="pp-modal-box">
+      <button id="ppModalClose">✕</button>
+      <div class="pp-modal-title">Tài Nguyên Chữa Lành</div>
+      <ul id="ppYtList"></ul>
+    </div>
+  </div>
+
+  <footer class="pp-footer">
+    <div class="pp-footer-logo">🪐 STELLAR<span>MIND</span></div>
+    <p class="pp-footer-meta">StellarMind © 2026 — Dự án Giáo dục Chữa lành Tinh hà</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="../js/planets-enhanced.js"></script>
+  <script src="../js/planet-page.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/chatbot.js"></script>
+</body>
+</html>
