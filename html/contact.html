@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liên Hệ — StellarMind</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/branding/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/branding/apple-touch-icon.png">
     <meta
       name="description"
       content="Liên hệ với đội ngũ phát triển StellarMind — Trình Khám Phá Hệ Mặt Trời Tương Tác Chữa Lành."
@@ -257,6 +260,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 1rem;
         background: rgba(1, 8, 18, 0.85);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -268,9 +272,17 @@
         font-weight: 700;
         color: #e8f4ff;
         letter-spacing: 2px;
+        flex-shrink: 0;
       }
       .nav-logo span {
         color: #00f5ff;
+      }
+      .nav-logo img {
+        width: 46px;
+        height: 46px;
+        object-fit: cover;
+        border-radius: 50%;
+        filter: drop-shadow(0 0 9px rgba(0, 245, 255, 0.45));
       }
 
       .nav-links {
@@ -279,6 +291,7 @@
         list-style: none;
         margin: 0;
         padding: 0;
+        flex: 1;
       }
       .nav-links a {
         font-family: "Rajdhani", sans-serif;
@@ -288,9 +301,7 @@
         color: rgba(232, 244, 255, 0.7);
         text-decoration: none;
         text-transform: uppercase;
-        transition:
-          color 0.3s,
-          text-shadow 0.3s;
+        transition: color 0.3s, text-shadow 0.3s;
       }
       .nav-links a:hover,
       .nav-links a.active {
@@ -304,7 +315,258 @@
         border: none;
         color: #00f5ff;
         font-size: 1.5rem;
+        flex-shrink: 0;
       }
+
+      /* ── Nav Auth ── */
+      .nav-auth-wrap {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .nav-login-btn {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        color: #010812;
+        background: linear-gradient(135deg, #00f5ff, #0080ff);
+        border: none;
+        border-radius: 50px;
+        padding: 7px 18px;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+      .nav-login-btn:hover {
+        box-shadow: 0 0 18px rgba(0, 245, 255, 0.5);
+        transform: translateY(-1px);
+      }
+      .nav-user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .nav-user-info.hidden { display: none; }
+      .nav-user-name {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.82rem;
+        letter-spacing: 1px;
+        color: #00f5ff;
+        white-space: nowrap;
+        max-width: 140px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .nav-logout-btn {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+        color: rgba(232,244,255,.55);
+        background: none;
+        border: 1px solid rgba(232,244,255,.2);
+        border-radius: 50px;
+        padding: 4px 12px;
+        cursor: pointer;
+        transition: all 0.3s;
+        white-space: nowrap;
+      }
+      .nav-logout-btn:hover {
+        color: #ff6b6b;
+        border-color: rgba(255,107,107,.5);
+      }
+
+      /* ── Auth Modal ── */
+      .auth-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: rgba(1, 8, 18, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .auth-overlay.open {
+        display: flex;
+      }
+      .auth-box {
+        background: rgba(5, 17, 31, 0.95);
+        border: 1px solid rgba(0, 245, 255, 0.25);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 400px;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(0, 245, 255, 0.15), 0 30px 80px rgba(0,0,0,.6);
+        animation: authSlideIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      @keyframes authSlideIn {
+        from { opacity: 0; transform: translateY(-24px) scale(0.97); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .auth-box-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem 1.5rem;
+        border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+      }
+      .auth-tabs {
+        display: flex;
+        gap: 0.4rem;
+      }
+      .auth-tab {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(232, 244, 255, 0.5);
+        background: none;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.25s;
+      }
+      .auth-tab.active {
+        color: #010812;
+        background: linear-gradient(135deg, #00f5ff, #0080ff);
+      }
+      .auth-close {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        color: rgba(232,244,255,.6);
+        cursor: pointer;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.25s;
+      }
+      .auth-close:hover { background: rgba(255,107,107,.15); color: #ff6b6b; border-color: rgba(255,107,107,.3); }
+      .auth-box-body {
+        padding: 1.5rem;
+      }
+      .auth-logo-hint {
+        text-align: center;
+        font-family: "Orbitron", monospace;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #00f5ff;
+        text-shadow: 0 0 16px rgba(0,245,255,.5);
+        margin-bottom: 1.4rem;
+        letter-spacing: 2px;
+      }
+      .auth-field {
+        margin-bottom: 1rem;
+      }
+      .auth-field label {
+        display: block;
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(0, 245, 255, 0.75);
+        margin-bottom: 6px;
+      }
+      .auth-field input {
+        width: 100%;
+        background: rgba(255,255,255,.04);
+        border: 1px solid rgba(0,245,255,.2);
+        border-radius: 10px;
+        padding: 11px 14px;
+        color: #e8f4ff;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: all 0.3s;
+      }
+      .auth-field input:focus {
+        border-color: #00f5ff;
+        background: rgba(0,245,255,.06);
+        box-shadow: 0 0 16px rgba(0,245,255,.12);
+      }
+      .auth-field input::placeholder { color: rgba(232,244,255,.3); }
+      .auth-error {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.82rem;
+        color: #fca5a5;
+        background: rgba(127,29,29,.25);
+        border: 1px solid rgba(248,113,113,.3);
+        border-radius: 8px;
+        padding: 8px 12px;
+        margin-bottom: 0.8rem;
+        display: none;
+      }
+      .auth-error.show { display: block; }
+      .auth-submit {
+        width: 100%;
+        font-family: "Orbitron", monospace;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        color: #010812;
+        background: linear-gradient(135deg, #00f5ff, #0080ff);
+        border: none;
+        border-radius: 50px;
+        padding: 13px;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 0.4rem;
+      }
+      .auth-submit:hover {
+        box-shadow: 0 0 24px rgba(0,245,255,.45);
+        transform: translateY(-1px);
+      }
+      .auth-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* ── Login required notice in form ── */
+      .login-notice {
+        display: none;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(0, 245, 255, 0.06);
+        border: 1px solid rgba(0, 245, 255, 0.2);
+        border-radius: 12px;
+        margin-bottom: 1.5rem;
+      }
+      .login-notice.show { display: flex; }
+      .login-notice p {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.9rem;
+        color: rgba(232,244,255,0.8);
+        line-height: 1.4;
+        margin: 0;
+      }
+      .login-notice-btn {
+        flex-shrink: 0;
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #010812;
+        background: linear-gradient(135deg, #00f5ff, #0080ff);
+        border: none;
+        border-radius: 50px;
+        padding: 7px 16px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.3s;
+      }
+      .login-notice-btn:hover { box-shadow: 0 0 16px rgba(0,245,255,.4); }
 
       /* ── Hero section ── */
       .hero-section {
@@ -735,16 +997,60 @@
      NAVIGATION
 ═══════════════════════════════════════════ -->
     <nav class="top-nav" id="topNav" role="navigation" aria-label="Menu chính">
-      <a href="index.html" class="nav-logo">🪐 STELLAR<span>MIND</span></a>
+      <a href="index.html" class="nav-logo" aria-label="StellarMind - Trang chủ"><img src="../assets/branding/stellarmind-logo.png" alt="Logo StellarMind" width="46" height="46"></a>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Trang Chủ</a></li>
         <li><a href="community.html">Cộng Đồng</a></li>
         <li><a href="contact.html" class="active">Liên Hệ</a></li>
       </ul>
+      <!-- Auth section in nav -->
+      <div class="nav-auth-wrap" id="navAuthWrap">
+        <!-- Logged out -->
+        <button class="nav-login-btn" id="navLoginBtn" aria-label="Đăng nhập">🔑 ĐĂNG NHẬP</button>
+        <!-- Logged in -->
+        <div class="nav-user-info hidden" id="navUserInfo">
+          <span class="nav-user-name" id="navUserName">🌌 ...</span>
+          <button class="nav-logout-btn" id="navLogoutBtn" title="Đăng xuất">ĐĂNG XUẤT</button>
+        </div>
+      </div>
       <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Mở menu">
         ☰
       </button>
     </nav>
+
+    <!-- ═══════════════════════════════════════════
+     AUTH MODAL
+═══════════════════════════════════════════ -->
+    <div class="auth-overlay" id="authModal" role="dialog" aria-modal="true" aria-label="Đăng nhập">
+      <div class="auth-box">
+        <div class="auth-box-header">
+          <div class="auth-tabs">
+            <button class="auth-tab active" id="tabLogin" data-tab="login">Đăng Nhập</button>
+            <button class="auth-tab" id="tabRegister" data-tab="register">Đăng Ký</button>
+          </div>
+          <button class="auth-close" id="authClose" aria-label="Đóng">✕</button>
+        </div>
+        <div class="auth-box-body">
+          <div class="auth-logo-hint">🪐 StellarMind</div>
+          <form id="authForm" onsubmit="return false;" novalidate>
+            <div class="auth-field">
+              <label for="authUser">Tên đăng nhập</label>
+              <input type="text" id="authUser" placeholder="Tối thiểu 3 ký tự..." required minlength="3" autocomplete="username" />
+            </div>
+            <div class="auth-field" id="authEmailField" style="display:none">
+              <label for="authEmail">Email <span style="color:rgba(0,245,255,.5);font-size:0.75rem">(dùng để nhận phản hồi)</span></label>
+              <input type="email" id="authEmail" placeholder="example@email.com" autocomplete="email" />
+            </div>
+            <div class="auth-field">
+              <label for="authPass">Mật khẩu</label>
+              <input type="password" id="authPass" placeholder="Tối thiểu 6 ký tự..." required minlength="6" autocomplete="current-password" />
+            </div>
+            <div class="auth-error" id="authError"></div>
+            <button type="submit" class="auth-submit" id="authSubmit">ĐĂNG NHẬP</button>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- ═══════════════════════════════════════════
      SECTION 1: HERO
@@ -977,7 +1283,7 @@
               <span class="text-2xl">🚀</span>
             </div>
             <h3 class="font-orbitron text-base font-bold text-white mb-1">
-              Nguyễn Tấn Phát
+      
             </h3>
             <div
               class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/10 border border-cyan-400/20 mb-4"
@@ -1015,7 +1321,7 @@
               <span class="text-2xl">⚙️</span>
             </div>
             <h3 class="font-orbitron text-base font-bold text-white mb-1">
-              Nguyễn Quốc Sách
+              
             </h3>
             <div
               class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-400/10 border border-purple-400/20 mb-4"
@@ -1425,6 +1731,13 @@
               </div>
             </div>
 
+            <!-- Login required notice -->
+            <div class="login-notice" id="loginNotice">
+              <span style="font-size:1.5rem">🔐</span>
+              <p>Bạn cần <strong style="color:#00f5ff">đăng nhập</strong> để gửi thư đến đội ngũ StellarMind.</p>
+              <button class="login-notice-btn" id="loginNoticeTrigger">ĐĂNG NHẬP</button>
+            </div>
+
             <!-- Submit button -->
             <div class="flex flex-col sm:flex-row items-center gap-4">
               <button
@@ -1676,67 +1989,251 @@
         }
       });
 
+      // ── Auth System ──────────────────────
+      (function initAuth() {
+        const API_BASE =
+          window.location.hostname === "localhost" ||
+          window.location.hostname === "127.0.0.1"
+            ? "http://localhost:5000/api"
+            : "https://project-web-bwm.onrender.com/api";
+
+        // ── Elements
+        const modal       = document.getElementById("authModal");
+        const authForm    = document.getElementById("authForm");
+        const authError   = document.getElementById("authError");
+        const authSubmit  = document.getElementById("authSubmit");
+        const authUser    = document.getElementById("authUser");
+        const authPass    = document.getElementById("authPass");
+        const authEmail   = document.getElementById("authEmail");
+        const authEmailField = document.getElementById("authEmailField");
+        const tabLogin    = document.getElementById("tabLogin");
+        const tabRegister = document.getElementById("tabRegister");
+        const navLoginBtn = document.getElementById("navLoginBtn");
+        const navLogoutBtn= document.getElementById("navLogoutBtn");
+        const navUserInfo = document.getElementById("navUserInfo");
+        const navUserName = document.getElementById("navUserName");
+        const loginNotice = document.getElementById("loginNotice");
+        const loginNoticeTrigger = document.getElementById("loginNoticeTrigger");
+
+        let currentMode = "login";
+
+        // ── Sync UI to stored auth state
+        function syncAuthUI() {
+          const token    = localStorage.getItem("stellar_auth_token");
+          const username = localStorage.getItem("stellar_auth_user");
+          if (token && username) {
+            navLoginBtn.style.display = "none";
+            navUserInfo.classList.remove("hidden");
+            navUserName.textContent   = "🌌 " + username;
+            loginNotice.classList.remove("show");
+            // Pre-fill name and email in contact form
+            const nameInp  = document.getElementById("input-name");
+            const emailInp = document.getElementById("input-email");
+            if (nameInp && !nameInp.value) nameInp.value = username;
+            const storedEmail = localStorage.getItem("stellar_auth_email");
+            if (emailInp && storedEmail && !emailInp.value) emailInp.value = storedEmail;
+          } else {
+            navLoginBtn.style.display = "";
+            navUserInfo.classList.add("hidden");
+            loginNotice.classList.add("show");
+          }
+        }
+
+        // ── Open / Close modal
+        function openModal(mode) {
+          currentMode = mode || "login";
+          setTab(currentMode);
+          modal.classList.add("open");
+          authUser.focus();
+          authError.classList.remove("show");
+          authError.textContent = "";
+        }
+        function closeModal() {
+          modal.classList.remove("open");
+          authForm.reset();
+          authError.classList.remove("show");
+        }
+
+        function setTab(mode) {
+          currentMode = mode;
+          tabLogin.classList.toggle("active", mode === "login");
+          tabRegister.classList.toggle("active", mode === "register");
+          authSubmit.textContent = mode === "login" ? "ĐĂNG NHẬP" : "TẠO TÀI KHOẢN";
+          authEmailField.style.display = mode === "register" ? "" : "none";
+          authEmail.required = mode === "register";
+          authPass.autocomplete = mode === "login" ? "current-password" : "new-password";
+          authError.classList.remove("show");
+        }
+
+        tabLogin.addEventListener("click", () => setTab("login"));
+        tabRegister.addEventListener("click", () => setTab("register"));
+        navLoginBtn.addEventListener("click", () => openModal("login"));
+        loginNoticeTrigger.addEventListener("click", () => openModal("login"));
+        document.getElementById("authClose").addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+        // ── Logout
+        navLogoutBtn.addEventListener("click", () => {
+          ["stellar_auth_token", "stellar_auth_user", "stellar_auth_email"].forEach(
+            (k) => localStorage.removeItem(k)
+          );
+          syncAuthUI();
+        });
+
+        // ── Submit
+        authForm.addEventListener("submit", async () => {
+          const username = authUser.value.trim();
+          const password = authPass.value;
+          const email    = authEmail.value.trim().toLowerCase();
+
+          if (!username || !password) {
+            authError.textContent = "Vui lòng nhập tên đăng nhập và mật khẩu.";
+            authError.classList.add("show");
+            return;
+          }
+          if (currentMode === "register" && !email) {
+            authError.textContent = "Vui lòng nhập email để đăng ký.";
+            authError.classList.add("show");
+            return;
+          }
+
+          authSubmit.disabled = true;
+          authSubmit.textContent = "ĐANG XỬ LÝ...";
+          authError.classList.remove("show");
+
+          try {
+            const endpoint = currentMode === "login" ? "/auth/login" : "/auth/register";
+            const body = currentMode === "login"
+              ? { username, password }
+              : { username, password, email };
+
+            const res  = await fetch(API_BASE + endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(body),
+            });
+            const data = await res.json();
+
+            if (!res.ok || !data.success) {
+              throw new Error(data.message || "Đã có lỗi xảy ra");
+            }
+
+            // Save credentials
+            localStorage.setItem("stellar_auth_token", data.token);
+            localStorage.setItem("stellar_auth_user",  data.username);
+            if (data.email) localStorage.setItem("stellar_auth_email", data.email);
+
+            closeModal();
+            syncAuthUI();
+          } catch (err) {
+            authError.textContent = err.message || "Không thể kết nối máy chủ.";
+            authError.classList.add("show");
+          } finally {
+            authSubmit.disabled = false;
+            authSubmit.textContent = currentMode === "login" ? "ĐĂNG NHẬP" : "TẠO TÀI KHOẢN";
+          }
+        });
+
+        // Init
+        syncAuthUI();
+        window.__contactAPIBase = API_BASE;
+      })();
+
       // ── Contact Form Submission ──────────
       (function initForm() {
         const form = document.getElementById("contactForm");
         const toast = document.getElementById("toastSuccess");
         const submitBtn = document.getElementById("submitBtn");
+        const emailInput = document.getElementById("input-email");
+        const charCount = document.getElementById("char-count");
 
         function showError(id, show) {
           document.getElementById(id).classList.toggle("hidden", !show);
         }
 
-        form.addEventListener("submit", async (e) => {
-          e.preventDefault();
+        function showToast(message, isError) {
+          toast.textContent = message;
+          toast.style.color = isError ? "#fca5a5" : "#00f5ff";
+          toast.style.borderColor = isError ? "rgba(248,113,113,.55)" : "rgba(0,245,255,.4)";
+          toast.style.background  = isError ? "rgba(127,29,29,.35)"   : "rgba(0,245,255,.1)";
+          toast.classList.add("show");
+          window.setTimeout(() => toast.classList.remove("show"), 5000);
+        }
 
-          const name = document.getElementById("input-name").value.trim();
-          const email = document.getElementById("input-email").value.trim();
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const token   = localStorage.getItem("stellar_auth_token");
+          if (!token) {
+            // Flash the login notice instead of a generic toast
+            const notice = document.getElementById("loginNotice");
+            notice.style.animation = "none";
+            notice.classList.add("show");
+            notice.offsetHeight; // reflow
+            notice.style.animation = "";
+            notice.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+          }
+
+          const name    = document.getElementById("input-name").value.trim();
+          const email   = emailInput.value.trim().toLowerCase();
+          const subject = document.getElementById("input-subject").value.trim();
           const message = document.getElementById("input-message").value.trim();
 
           let valid = true;
-          if (!name) {
-            showError("err-name", true);
-            valid = false;
-          } else showError("err-name", false);
+          if (!name)  { showError("err-name", true);  valid = false; } else showError("err-name", false);
           if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            showError("err-email", true);
-            valid = false;
+            showError("err-email", true); valid = false;
           } else showError("err-email", false);
-          if (!message) {
-            showError("err-message", true);
-            valid = false;
-          } else showError("err-message", false);
-
+          if (!message) { showError("err-message", true); valid = false; } else showError("err-message", false);
           if (!valid) return;
 
-          // Simulate sending
+          const API_BASE = window.__contactAPIBase ||
+            (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+              ? "http://localhost:5000/api" : "https://project-web-bwm.onrender.com/api");
+
           submitBtn.disabled = true;
-          submitBtn.innerHTML =
-            '<svg class="animate-spin" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> ĐANG GỬI...';
+          submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> ĐANG GỬI...';
 
-          await new Promise((r) => setTimeout(r, 1600));
+          try {
+            // Link email if it changed
+            const storedEmail = localStorage.getItem("stellar_auth_email");
+            if (storedEmail !== email) {
+              const linkRes = await fetch(API_BASE + "/auth/email", {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+                body: JSON.stringify({ email }),
+              });
+              const linkData = await linkRes.json();
+              if (!linkRes.ok || !linkData.success) throw new Error(linkData.message || "Không thể liên kết email");
+              localStorage.setItem("stellar_auth_email", linkData.email);
+            }
 
-          submitBtn.disabled = false;
-          submitBtn.innerHTML =
-            '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> GỬI TÍN HIỆU VÀO VŨ TRỤ';
-          form.reset();
-          charCount.textContent = "0 / 500";
+            const res  = await fetch(API_BASE + "/contact", {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
+              body: JSON.stringify({ name, subject, message }),
+            });
+            const data = await res.json();
+            if (!res.ok || !data.success) throw new Error(data.message || "Không thể gửi thư lúc này");
 
-          // Show toast
-          toast.classList.add("show");
-          setTimeout(() => toast.classList.remove("show"), 3500);
+            form.reset();
+            const savedEmail = localStorage.getItem("stellar_auth_email");
+            if (savedEmail) emailInput.value = savedEmail;
+            if (charCount) charCount.textContent = "0 / 500";
+            showToast("✓ Thư đã được gửi đến đội ngũ StellarMind!");
+          } catch (err) {
+            showToast(err.message || "Không thể kết nối máy chủ.", true);
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg> GỬI TÍN HIỆU VÀO VŨ TRỤ';
+          }
         });
 
-        // Remove error on input
         ["input-name", "input-email", "input-message"].forEach((id) => {
-          const errMap = {
-            "input-name": "err-name",
-            "input-email": "err-email",
-            "input-message": "err-message",
-          };
-          document
-            .getElementById(id)
-            .addEventListener("input", () => showError(errMap[id], false));
+          const errMap = { "input-name": "err-name", "input-email": "err-email", "input-message": "err-message" };
+          document.getElementById(id).addEventListener("input", () => showError(errMap[id], false));
         });
       })();
 
